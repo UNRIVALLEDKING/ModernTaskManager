@@ -4,7 +4,7 @@ import "./Card.css";
 // #2be4ea
 export default function Card() {
   const [progress, setProgress] = useState(0);
-  console.log("progress", progress);
+  // console.log("progress", progress);
 
   const addProgress = () => {
     if (progress >= 100) {
@@ -21,11 +21,11 @@ export default function Card() {
     <>
       <div className="max-w-md m-auto my-4">
         <div className="rounded-2xl pending-card p-1">
-          <div id="loader">
+          {/* <div id="loader">
             <div className="outer">
               <div className="inner"></div>
             </div>
-          </div>
+          </div> */}
 
           <div className="text-center p-3 sm:pr-8">
             <h3 className="text-xl font-bold small_header ">This Project</h3>
