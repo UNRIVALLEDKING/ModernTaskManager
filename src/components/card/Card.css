@@ -1,0 +1,151 @@
+.pending-card {
+  background-color: #00000080;
+  box-shadow: 5px 5px 20px #00000080;
+  z-index: 20;
+}
+
+/* Loader */
+#loader {
+  display: block;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  opacity: 0.5;
+}
+
+.inner,
+.outer {
+  text-align: center;
+  color: rgba(0, 255, 0, 1);
+  animation: fade 5s linear infinite;
+}
+@keyframes fade {
+  0% {
+    color: rgba(0, 255, 0, 1);
+  }
+  50% {
+    color: rgba(0, 255, 0, 0);
+  }
+}
+
+.outer {
+  margin: auto;
+  border: 16px solid rgba(0, 0, 0, 0);
+  border-top: 16px solid rgb(255, 255, 0);
+  border-bottom: 16px solid rgb(255, 255, 0);
+  border-radius: 50%;
+  border-style: double;
+  width: 150px;
+  height: 150px;
+  animation: spin 5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.inner {
+  margin: auto;
+  border: 15px solid rgba(0, 0, 0, 0);
+  border-top: 15px solid rgb(0, 255, 255);
+  border-bottom: 15px solid rgb(0, 255, 255);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin2 1.5s linear infinite;
+}
+@keyframes spin2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Hover Button */
+
+.btn_container {
+  color: #35f8ff;
+  position: relative;
+  display: inline-block;
+}
+.prog_btn {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 10px 25px;
+  z-index: 3;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  position: relative;
+}
+
+.btn_container .svgStroke {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: -25%;
+  left: 0;
+}
+
+.btn_container .svgStroke path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: -800;
+  stroke-width: 2;
+  transition: all 1s ease-in-out;
+  stroke: #35f8ff;
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 100;
+    stroke-width: 2;
+  }
+  50% {
+    stroke-width: 4;
+    stroke: #35f8ff;
+    filter: drop-shadow(0px 0px 3px #e8615a) drop-shadow(0px 0px 20px #35f8ff)
+      drop-shadow(0px 0px 150px #35f8ff);
+  }
+  100% {
+    stroke-dashoffset: 800;
+    stroke-width: 2;
+  }
+}
+
+.prog_btn:hover + .svgStroke path {
+  cursor: pointer;
+  animation: dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.prog_btn:hover {
+  font-size: 1.2rem;
+}
+
+/* Small Header */
+
+.small_header {
+  letter-spacing: 0.035rem;
+  text-shadow: -9px -9px 30px currentcolor;
+  font-size: 2.5rem !important;
+  color: #35f8ff;
+}
+
+/* Progress Bar */
+
+.progress_bar {
+  height: 3px;
+  background-color: #35f8ff;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px #35f8ff;
+  transition: ease 600ms;
+}
+
+.progress_data {
+  color: #35f8ff;
+  text-shadow: -9px -9px 30px currentcolor;
+  font-size: 1.5rem;
+}

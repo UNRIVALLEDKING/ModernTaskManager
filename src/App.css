@@ -1,0 +1,69 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header {
+  font-family: "VT323", monospace;
+  letter-spacing: 0.035rem;
+  text-shadow: -9px -9px 30px currentcolor;
+}
+
+.base {
+  max-width: 500px;
+  min-width: 250px;
+  border: 2px solid red;
+}
+
+.add-btn {
+  color: #35f8ff;
+  border: 2px solid #35f8ff;
+  border-radius: 0;
+  -webkit-clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 1rem + 2px),
+    calc(100% - 1rem + 2px) 100%,
+    0 100%
+  );
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 1rem + 2px),
+    calc(100% - 1rem + 2px) 100%,
+    0 100%
+  );
+}
+.add-btn:hover {
+  background-color: #408a92;
+  border: 2px solid #35f8ff;
+}
+.add-btn::before {
+  background-color: currentcolor;
+  bottom: 5px;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  right: -6px;
+  top: auto;
+  transform: rotate(-45deg);
+  width: 22.627416px;
+  z-index: 100;
+}
+.add-btn:focus,
+.add-btn:focus-visible {
+  outline: none;
+}
+.under::after {
+  background-color: #e8615a;
+  box-shadow: 0 0 5px #e8615a;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
