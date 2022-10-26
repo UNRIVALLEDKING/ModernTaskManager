@@ -14,27 +14,28 @@ export default function Card() {
     }
   };
 
+  var str =
+    "This is a Sample Project in development. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias minima voluptatem animi? Voluptate, ducimus fugiat neque dolore autem totam earum eligendi aut natus ipsum, repellat perspiciatis consequatur veritatis explicabo tempora.";
   const complete = () => {
     setProgress(100);
   };
   return (
     <>
       <div className="max-w-md m-auto my-4">
-        <div className="rounded-2xl pending-card p-1">
-          {/* <div id="loader">
-            <div className="outer">
-              <div className="inner"></div>
-            </div>
-          </div> */}
+        <div className="rounded-2xl pending-card box p-1">
+          {/* <div class="circle"></div> */}
 
-          <div className="text-center p-3 sm:pr-8">
-            <h3 className="text-xl font-bold small_header ">This Project</h3>
+          <div className="text-center p-3 sm:pr-8 ">
+            <h3 className="text-xl font-bold title pb-4">This Project</h3>
+            <p className="min-h-[20px] paragraph">
+              {str.substring(0, 80) + " ..."}
+            </p>
           </div>
 
           <div className="progress_bar" style={{ width: `${progress}%` }}></div>
           <div className="flex justify-between">
-            <span className="progress_data">{progress} % Done</span>
-            <span className="progress_data">{100 - progress} % Left</span>
+            <span className="progress_data">{progress} % Progress</span>
+
             <span className="progress_data">12 days left</span>
           </div>
           <div>
