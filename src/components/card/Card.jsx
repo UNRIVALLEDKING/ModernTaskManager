@@ -22,7 +22,7 @@ export default function Card() {
   return (
     <>
       <div className="max-w-md m-auto my-4">
-        <div className="rounded-2xl pending-card box p-1">
+        <div className="rounded-2xl pending-card box">
           {/* <div class="circle"></div> */}
 
           <div className="text-center p-3 sm:pr-8 ">
@@ -39,15 +39,15 @@ export default function Card() {
             <span className="progress_data">12 days left</span>
           </div>
           <div>
-            <div className="btn_container text-center mt-10 mb-10 mx-5">
-              <div className="prog_btn m-auto" onClick={addProgress}>
+            <div className="btn_container text-center mr-1 w-[48%]">
+              <div className="prog_btn whitespace-nowrap" onClick={addProgress}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 inline-block mr-3"
+                  className="w-6 h-6 inline-block mr-1 ml-0 p-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -72,15 +72,15 @@ export default function Card() {
                 />
               </svg>
             </div>
-            <div className="btn_container text-center mt-10 mb-10 mx-auto">
-              <div className="prog_btn m-auto" onClick={complete}>
+            <div className="btn_container text-center my-5 w-[50%]">
+              <div className="prog_btn whitespace-nowrap" onClick={complete}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 inline-block mr-3"
+                  className="w-6 h-6 inline-block mr-1 ml-0 p-0"
                 >
                   <path
                     strokeLinecap="round"

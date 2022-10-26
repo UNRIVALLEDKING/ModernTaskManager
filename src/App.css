@@ -13,6 +13,7 @@
 
 .base {
   max-width: 500px;
+  padding: 5px 10px;
   min-width: 250px;
   border: 2px solid red;
 }
