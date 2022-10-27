@@ -31,7 +31,7 @@ export default function Card() {
     <>
       <div className="max-w-md m-auto my-8">
         <div className="rounded-2xl pending-card box">
-          <div class="circle"></div>
+          <div className="circle"></div>
 
           <div className="text-center p-3 sm:pr-8 ">
             <h3 className="text-xl font-bold title pb-4">This Project</h3>

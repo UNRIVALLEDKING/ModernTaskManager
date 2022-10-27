@@ -1,16 +1,35 @@
 import { useState } from "react";
 import "./App.css";
 import Card from "./components/card/Card";
+import Form from "./components/form/Form";
 
 function App() {
+  const [form, setForm] = useState(false);
+
+  const openModal = () => {
+    setForm(true);
+  };
+
+  const closeModal = () => {
+    setForm(false);
+    console.log("clsoe");
+  };
+  console.log("form", form);
   return (
     <>
       <div className="line"></div>
       <div className="base -mx-5 sm:m-auto">
+        {form ? (
+          <>
+            <Form form={form} setForm={setForm} closeModal={closeModal} />
+          </>
+        ) : (
+          <></>
+        )}
         <h1 className="header under">ToDoMatic</h1>
         <div className="flex justify-around my-3">
           <h1 className="header">Projects</h1>
-          <button className="bg-transparent add-btn">
+          <button onClick={openModal} className="bg-transparent add-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
