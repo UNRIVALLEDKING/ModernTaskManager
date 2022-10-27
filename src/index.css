@@ -46,8 +46,17 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
-
+html {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

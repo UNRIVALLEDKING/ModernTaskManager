@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div className="line"></div>
-      <div className="base -mx-5 md:m-auto">
+      <div className="base -mx-5 sm:m-auto">
         <h1 className="header under">ToDoMatic</h1>
         <div className="flex justify-around my-3">
           <h1 className="header">Projects</h1>
@@ -29,6 +29,9 @@ function App() {
         </div>
 
         <div className="card-container">
+          <Card />
+          <Card />
+          <Card />
           <Card />
           <Card />
         </div>

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./Card.css";
 
-// #2be4ea
 export default function Card() {
   const [progress, setProgress] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
-  // console.log("progress", progress);
 
   const addProgress = () => {
     if (progress >= 100) {
@@ -19,7 +17,6 @@ export default function Card() {
       }, 1500);
     }
   };
-  console.log("animate", animate);
 
   var str =
     "This is a Sample Project in development. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias minima voluptatem animi? Voluptate, ducimus fugiat neque dolore autem totam earum eligendi aut natus ipsum, repellat perspiciatis consequatur veritatis explicabo tempora.";
@@ -32,9 +29,9 @@ export default function Card() {
   };
   return (
     <>
-      <div className="max-w-md m-auto my-6">
+      <div className="max-w-md m-auto my-8">
         <div className="rounded-2xl pending-card box">
-          {/* <div class="circle"></div> */}
+          <div class="circle"></div>
 
           <div className="text-center p-3 sm:pr-8 ">
             <h3 className="text-xl font-bold title pb-4">This Project</h3>
@@ -43,7 +40,10 @@ export default function Card() {
             </p>
           </div>
 
-          <div className="progress_bar" style={{ width: `${progress}%` }}></div>
+          <div
+            className="progress_bar my-2"
+            style={{ width: `${progress}%` }}
+          ></div>
           <div className="flex justify-between">
             <span className="progress_data">{progress} % Progress</span>
 

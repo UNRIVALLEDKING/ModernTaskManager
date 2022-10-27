@@ -122,14 +122,15 @@
 
 .circle {
   position: absolute;
-  top: 20px;
-  left: 400px;
-  width: 150px;
-  height: 150px;
+  top: -20px;
+  right: -60px;
+  width: 120px;
+  height: 120px;
   border-width: 4px;
   border-style: solid;
   border-color: transparent orange;
   border-radius: 50%;
+  animation: rotating 2s linear infinite forwards;
 }
 
 .circle::after {
@@ -137,8 +138,8 @@
   position: absolute;
   top: 6px;
   left: 6px;
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   border: 1px solid rgba(255, 165, 0, 0.2);
   border-radius: 50%;
 }
