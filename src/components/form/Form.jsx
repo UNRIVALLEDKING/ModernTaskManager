@@ -7,6 +7,7 @@ export default function Form({ form, setForm, closeModal }) {
   const addProject = () => {
     setForm(false);
   };
+  console.log("audio", addEffect);
   return (
     <>
       <div id="myModal" className="modal" style={{ display: "block" }}>

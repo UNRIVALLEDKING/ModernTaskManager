@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import "./Card.css";
+import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
+import CompleteSound from "../../assets/SoundEffects/Complete_sound_effect.wav";
 
 export default function Card() {
   const [progress, setProgress] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
+
+  let addEffect = new Audio(AddSound);
+  let completeEffect = new Audio(CompleteSound);
 
   const addProgress = () => {
     if (progress >= 100) {
@@ -12,6 +17,8 @@ export default function Card() {
     } else {
       setAnimate(true);
       setProgress(progress + 10);
+      addEffect.play();
+
       setTimeout(() => {
         setAnimate(false);
       }, 1500);
@@ -23,6 +30,7 @@ export default function Card() {
   const complete = () => {
     setCompAnimate(true);
     setProgress(100);
+    completeEffect.play();
     setTimeout(() => {
       setCompAnimate(false);
     }, 1500);
