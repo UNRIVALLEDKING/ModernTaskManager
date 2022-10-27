@@ -56,7 +56,6 @@
 
 .prog_btn:hover + .svgStroke path {
   cursor: pointer;
-  animation: dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .prog_btn:hover {

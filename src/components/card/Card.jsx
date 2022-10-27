@@ -4,31 +4,42 @@ import "./Card.css";
 // #2be4ea
 export default function Card() {
   const [progress, setProgress] = useState(0);
+  const [animate, setAnimate] = useState(false);
+  const [compAnimate, setCompAnimate] = useState(false);
   // console.log("progress", progress);
 
   const addProgress = () => {
     if (progress >= 100) {
       setProgress(progress);
     } else {
+      setAnimate(true);
       setProgress(progress + 10);
+      setTimeout(() => {
+        setAnimate(false);
+      }, 1500);
     }
   };
+  console.log("animate", animate);
 
   var str =
     "This is a Sample Project in development. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias minima voluptatem animi? Voluptate, ducimus fugiat neque dolore autem totam earum eligendi aut natus ipsum, repellat perspiciatis consequatur veritatis explicabo tempora.";
   const complete = () => {
+    setCompAnimate(true);
     setProgress(100);
+    setTimeout(() => {
+      setCompAnimate(false);
+    }, 1500);
   };
   return (
     <>
-      <div className="max-w-md m-auto my-4">
+      <div className="max-w-md m-auto my-6">
         <div className="rounded-2xl pending-card box">
           {/* <div class="circle"></div> */}
 
           <div className="text-center p-3 sm:pr-8 ">
             <h3 className="text-xl font-bold title pb-4">This Project</h3>
             <p className="min-h-[20px] paragraph">
-              {str.substring(0, 80) + " ..."}
+              {str.substring(0, 75) + " ..."}
             </p>
           </div>
 
@@ -66,6 +77,14 @@ export default function Card() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  style={
+                    animate
+                      ? {
+                          animation:
+                            "dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                        }
+                      : { animation: "none" }
+                  }
                   d="M205 84H21L1 63.4941V18.5765L21 1H205L221 18.5765V63.4941L205 84Z"
                   stroke="white"
                   strokeWidth={2}
@@ -99,6 +118,14 @@ export default function Card() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  style={
+                    compAnimate
+                      ? {
+                          animation:
+                            "dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                        }
+                      : { animation: "none" }
+                  }
                   d="M205 84H21L1 63.4941V18.5765L21 1H205L221 18.5765V63.4941L205 84Z"
                   stroke="white"
                   strokeWidth={2}
