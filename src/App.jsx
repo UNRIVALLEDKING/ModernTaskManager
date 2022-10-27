@@ -1,27 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/Card";
 import Form from "./components/form/Form";
 
 function App() {
   const [form, setForm] = useState(false);
-
+  const [allProjects, setAllProjects] = useState(() => {
+    const savedData = localStorage.getItem("projects");
+    if (savedData) {
+      return JSON.parse(savedData);
+    } else {
+      return [];
+    }
+  });
   const openModal = () => {
     setForm(true);
   };
 
   const closeModal = () => {
     setForm(false);
-    console.log("clsoe");
   };
-  console.log("form", form);
+  console.log(allProjects);
+
+  useEffect(() => {
+    localStorage.getItem("projects");
+  }, []);
+
   return (
     <>
       <div className="line"></div>
       <div className="base -mx-5 sm:m-auto">
         {form ? (
           <>
-            <Form form={form} setForm={setForm} closeModal={closeModal} />
+            <Form
+              form={form}
+              setForm={setForm}
+              closeModal={closeModal}
+              allProjects={allProjects}
+            />
           </>
         ) : (
           <></>
@@ -48,11 +64,9 @@ function App() {
         </div>
 
         <div className="card-container">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {allProjects?.map((item, id) => (
+            <Card item={item} id={id} />
+          ))}
         </div>
       </div>
     </>

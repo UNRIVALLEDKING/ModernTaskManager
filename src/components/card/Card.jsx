@@ -3,7 +3,7 @@ import "./Card.css";
 import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
 import CompleteSound from "../../assets/SoundEffects/Complete_sound_effect.wav";
 
-export default function Card() {
+export default function Card({ item, id }) {
   const [progress, setProgress] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
@@ -25,8 +25,7 @@ export default function Card() {
     }
   };
 
-  var str =
-    "This is a Sample Project in development. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias minima voluptatem animi? Voluptate, ducimus fugiat neque dolore autem totam earum eligendi aut natus ipsum, repellat perspiciatis consequatur veritatis explicabo tempora.";
+  var str = item.desc;
   const complete = () => {
     setCompAnimate(true);
     setProgress(100);
@@ -37,12 +36,12 @@ export default function Card() {
   };
   return (
     <>
-      <div className="max-w-md m-auto my-8">
+      <div id={id} className="max-w-md m-auto my-8">
         <div className="rounded-2xl pending-card box">
           <div className="circle"></div>
 
           <div className="text-center p-3 sm:pr-8 ">
-            <h3 className="text-xl font-bold title pb-4">This Project</h3>
+            <h3 className="text-xl font-bold title pb-4">{item.title}</h3>
             <p className="min-h-[20px] paragraph">
               {str.substring(0, 75) + " ..."}
             </p>
@@ -55,7 +54,7 @@ export default function Card() {
           <div className="flex justify-between">
             <span className="progress_data">{progress} % Progress</span>
 
-            <span className="progress_data">12 days left</span>
+            <span className="progress_data">{item.deadline}</span>
           </div>
           <div>
             <div className="btn_container text-center mr-1 w-[48%]">
