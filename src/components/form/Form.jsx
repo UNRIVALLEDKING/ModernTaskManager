@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./form.css";
+import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
 
 export default function Form({ form, setForm, closeModal }) {
   const [date, setDate] = useState("text");
 
+  let addEffect = new Audio(AddSound);
+
   const addProject = () => {
+    addEffect.play();
     setForm(false);
   };
-  console.log("audio", addEffect);
   return (
     <>
       <div id="myModal" className="modal" style={{ display: "block" }}>
