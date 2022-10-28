@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/Card";
 import Form from "./components/form/Form";
@@ -20,11 +20,6 @@ function App() {
   const closeModal = () => {
     setForm(false);
   };
-  console.log(allProjects);
-
-  useEffect(() => {
-    localStorage.getItem("projects");
-  }, []);
 
   return (
     <>
@@ -64,9 +59,21 @@ function App() {
         </div>
 
         <div className="card-container">
-          {allProjects?.map((item, id) => (
-            <Card item={item} id={id} />
-          ))}
+          {allProjects.length > 0 ? (
+            <>
+              {allProjects.map((item, id) => (
+                <Card
+                  allProjects={allProjects}
+                  setAllProjects={setAllProjects}
+                  item={item}
+                  key={id}
+                  id={id}
+                />
+              ))}
+            </>
+          ) : (
+            "no data"
+          )}
         </div>
       </div>
     </>

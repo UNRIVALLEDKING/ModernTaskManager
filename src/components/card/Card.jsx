@@ -3,7 +3,7 @@ import "./Card.css";
 import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
 import CompleteSound from "../../assets/SoundEffects/Complete_sound_effect.wav";
 
-export default function Card({ item, id }) {
+export default function Card({ item, allProjects, setAllProjects, id }) {
   const [progress, setProgress] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
@@ -11,7 +11,7 @@ export default function Card({ item, id }) {
   let addEffect = new Audio(AddSound);
   let completeEffect = new Audio(CompleteSound);
 
-  const addProgress = () => {
+  const addProgress = (item) => {
     if (progress >= 100) {
       setProgress(progress);
     } else {
@@ -25,7 +25,6 @@ export default function Card({ item, id }) {
     }
   };
 
-  var str = item.desc;
   const complete = () => {
     setCompAnimate(true);
     setProgress(100);
@@ -36,29 +35,32 @@ export default function Card({ item, id }) {
   };
   return (
     <>
-      <div id={id} className="max-w-md m-auto my-8">
+      <div className="max-w-md m-auto my-8">
         <div className="rounded-2xl pending-card box">
           <div className="circle"></div>
 
           <div className="text-center p-3 sm:pr-8 ">
             <h3 className="text-xl font-bold title pb-4">{item.title}</h3>
             <p className="min-h-[20px] paragraph">
-              {str.substring(0, 75) + " ..."}
+              {item.desc?.substring(0, 75) + " ..."}
             </p>
           </div>
 
           <div
             className="progress_bar my-2"
-            style={{ width: `${progress}%` }}
+            style={{ width: `${item.progress}%` }}
           ></div>
           <div className="flex justify-between">
-            <span className="progress_data">{progress} % Progress</span>
+            <span className="progress_data">{item.progress} % Progress</span>
 
             <span className="progress_data">{item.deadline}</span>
           </div>
           <div>
             <div className="btn_container text-center mr-1 w-[48%]">
-              <div className="prog_btn whitespace-nowrap" onClick={addProgress}>
+              <div
+                className="prog_btn whitespace-nowrap"
+                onClick={() => addProgress(id)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
