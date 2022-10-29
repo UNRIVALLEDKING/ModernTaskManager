@@ -16,7 +16,6 @@ function App() {
     }
   });
   const openModal = () => {
-    toast("open");
     setForm(true);
   };
 
