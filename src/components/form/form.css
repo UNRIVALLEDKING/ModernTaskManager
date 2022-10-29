@@ -101,3 +101,14 @@
   border-radius: 50%;
   animation: rotating 2s linear infinite forwards;
 }
+
+/* Date Placeholder */
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #35f8ff;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}

@@ -24,6 +24,9 @@
     transparent 95%
   );
   z-index: 8;
+
+  /* ToastContainer Progress bar color */
+  --toastify-color-progress-light: linear-gradient(to right, #e8615a, #35f8ff);
 }
 * {
   margin: 0;

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/Card";
 import Form from "./components/form/Form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [form, setForm] = useState(false);
@@ -14,6 +16,7 @@ function App() {
     }
   });
   const openModal = () => {
+    toast("open");
     setForm(true);
   };
 
@@ -26,6 +29,7 @@ function App() {
   }, [allProjects]);
   return (
     <>
+      <ToastContainer />
       <div className="line"></div>
       <div className="base -mx-5 sm:m-auto">
         {form ? (

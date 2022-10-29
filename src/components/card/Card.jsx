@@ -55,9 +55,33 @@ export default function Card({ item, allProjects, setAllProjects, id }) {
 
           <div className="text-center p-3 sm:pr-8 ">
             <h3 className="text-xl font-bold title pb-4">{item.title}</h3>
-            <p className="min-h-[20px] paragraph">
-              {item.desc?.substring(0, 75) + " ..."} <span>{item.status}</span>
-            </p>
+
+            {item.desc.length > 0 ? (
+              <>
+                {item.desc.length > 75 ? (
+                  <>
+                    <p className="min-h-[20px] paragraph">
+                      {item.desc?.substring(0, 75) + " ..."}{" "}
+                      <span>{item.status}</span>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="min-h-[20px] paragraph">
+                      {item.desc} <br />
+                      <span>{item.status}</span>
+                    </p>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="min-h-[20px] paragraph">
+                  No Description <br />
+                  <span>{item.status}</span>
+                </p>
+              </>
+            )}
           </div>
 
           <div

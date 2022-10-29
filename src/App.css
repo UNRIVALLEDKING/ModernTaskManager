@@ -78,3 +78,26 @@
   width: 0;
   height: 0;
 }
+
+/* ToastContainer */
+
+.Toastify {
+  z-index: 99;
+}
+
+.Toastify__toast {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-top: 2px solid #35f8ff;
+  border-left: 2px solid #35f8ff;
+  border-right: 2px solid #35f8ff;
+}
+
+.Toastify__toast-body {
+  font-size: 1.8rem;
+  color: #35f8ff;
+  text-shadow: -9px -9px 30px currentcolor;
+}
+.Toastify__close-button {
+  color: #e8615a !important;
+  opacity: 0.8 !important;
+}

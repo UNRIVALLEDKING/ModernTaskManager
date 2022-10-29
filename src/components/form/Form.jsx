@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import "./form.css";
 import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
+import { toast } from "react-toastify";
 
 export default function Form({ closeModal, allProjects, setAllProjects }) {
-  const [date, setDate] = useState("text");
   const projectRef = useRef();
   const descRef = useRef();
   const dateRef = useRef();
@@ -12,19 +12,24 @@ export default function Form({ closeModal, allProjects, setAllProjects }) {
 
   const addProject = (e) => {
     e.preventDefault();
-    addEffect.play();
-    const project = {
-      title: projectRef.current.value,
-      desc: descRef.current.value,
-      deadline: dateRef.current.value,
-      start: new Date().toDateString(),
-      progress: 40,
-      status: "ongoing",
-    };
-    const updatedProjects = [...allProjects, project];
-    setAllProjects(updatedProjects);
-    localStorage.setItem("projects", JSON.stringify(updatedProjects));
-    closeModal();
+
+    if (projectRef.current.value.trim > 0) {
+      addEffect.play();
+      const project = {
+        title: projectRef.current.value,
+        desc: descRef.current.value,
+        deadline: dateRef.current.value,
+        start: new Date().toDateString(),
+        progress: 40,
+        status: "ongoing",
+      };
+      const updatedProjects = [...allProjects, project];
+      setAllProjects(updatedProjects);
+      localStorage.setItem("projects", JSON.stringify(updatedProjects));
+      closeModal();
+    } else {
+      toast("Fill Project Details to Continue");
+    }
   };
 
   return (
@@ -45,8 +50,7 @@ export default function Form({ closeModal, allProjects, setAllProjects }) {
               ref={descRef}
             />
             <input
-              type={date}
-              onFocus={() => setDate("date")}
+              type="date"
               placeholder="deadline"
               className="input-field my-2"
               ref={dateRef}
