@@ -5,10 +5,10 @@ import Form from "./components/form/Form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NoDataCard from "./components/noDataCard/NoDataCard";
+import CompEffect from "./assets/SoundEffects/Complete_sound_effect.wav";
 
 function App() {
   const [form, setForm] = useState(false);
-  const [disAnimate, setDisAnimate] = useState(false);
   const [allProjects, setAllProjects] = useState(() => {
     const savedData = localStorage.getItem("projects");
     if (savedData) {
@@ -17,19 +17,21 @@ function App() {
       return [];
     }
   });
+
+  const compAudio = new Audio(CompEffect);
   const openModal = () => {
+    compAudio.play();
     setForm(true);
   };
 
   const closeModal = () => {
+    compAudio.play();
     setForm(false);
   };
   const disposeAll = () => {
-    setDisAnimate(true);
     localStorage.clear();
     setTimeout(() => {
       setAllProjects([]);
-      setDisAnimate(false);
     }, 1500);
   };
 
@@ -41,10 +43,10 @@ function App() {
       <ToastContainer />
       <div className="line"></div>
       <div className="base -mx-5 sm:m-auto">
-        <span> </span>
-        <span> </span>
-        <span> </span>
-        <span> </span>
+        <span className="bord"></span>
+        <span className="bord"></span>
+        <span className="bord"></span>
+        <span className="bord"></span>
         {form ? (
           <>
             <Form
