@@ -19,8 +19,8 @@ export default function Form({ closeModal, allProjects, setAllProjects }) {
         desc: descRef.current.value,
         deadline: dateRef.current.value,
         start: new Date().toDateString(),
-        progress: 40,
-        status: "ongoing",
+        progress: 0,
+        status: "Active",
       };
       const updatedProjects = [...allProjects, project];
       setAllProjects(updatedProjects);
