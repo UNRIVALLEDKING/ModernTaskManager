@@ -13,7 +13,7 @@ export default function Form({ closeModal, allProjects, setAllProjects }) {
   const addProject = (e) => {
     e.preventDefault();
 
-    if (projectRef.current.value.trim > 0) {
+    if (projectRef.current.value.trim.length > 0) {
       addEffect.play();
       const project = {
         title: projectRef.current.value,
