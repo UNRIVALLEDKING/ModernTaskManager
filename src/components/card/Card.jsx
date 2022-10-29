@@ -16,7 +16,7 @@ export default function Card({ item, allProjects, setAllProjects, id }) {
     setAllProjects(
       allProjects.map((project, id) => {
         if (projectId === id) {
-          if (project.progress < 100) {
+          if (project.progress < 90) {
             return { ...project, progress: project.progress + 10 };
           } else {
             return { ...project, progress: 100, status: "Completed" };
@@ -31,9 +31,18 @@ export default function Card({ item, allProjects, setAllProjects, id }) {
     }, 1500);
   };
 
-  const complete = () => {
+  const complete = (projectId) => {
     setCompAnimate(true);
     completeEffect.play();
+    setAllProjects(
+      allProjects.map((project, id) => {
+        if (projectId === id) {
+          return { ...project, progress: 100, status: "Completed" };
+        } else {
+          return project;
+        }
+      })
+    );
     setTimeout(() => {
       setCompAnimate(false);
     }, 1500);
@@ -106,7 +115,10 @@ export default function Card({ item, allProjects, setAllProjects, id }) {
               </svg>
             </div>
             <div className="btn_container text-center my-5 w-[50%]">
-              <div className="prog_btn whitespace-nowrap" onClick={complete}>
+              <div
+                className="prog_btn whitespace-nowrap"
+                onClick={() => complete(id)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
