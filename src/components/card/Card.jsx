@@ -4,30 +4,35 @@ import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
 import CompleteSound from "../../assets/SoundEffects/Complete_sound_effect.wav";
 
 export default function Card({ item, allProjects, setAllProjects, id }) {
-  const [progress, setProgress] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
 
   let addEffect = new Audio(AddSound);
   let completeEffect = new Audio(CompleteSound);
 
-  const addProgress = (item) => {
-    if (progress >= 100) {
-      setProgress(progress);
-    } else {
-      setAnimate(true);
-      setProgress(progress + 10);
-      addEffect.play();
-
-      setTimeout(() => {
-        setAnimate(false);
-      }, 1500);
-    }
+  const addProgress = (projectId) => {
+    setAnimate(true);
+    addEffect.play();
+    setAllProjects(
+      allProjects.map((project, id) => {
+        if (projectId === id) {
+          if (project.progress < 100) {
+            return { ...project, progress: project.progress + 10 };
+          } else {
+            return { ...project, progress: 100, status: "Completed" };
+          }
+        } else {
+          return project;
+        }
+      })
+    );
+    setTimeout(() => {
+      setAnimate(false);
+    }, 1500);
   };
 
   const complete = () => {
     setCompAnimate(true);
-    setProgress(100);
     completeEffect.play();
     setTimeout(() => {
       setCompAnimate(false);
@@ -42,7 +47,7 @@ export default function Card({ item, allProjects, setAllProjects, id }) {
           <div className="text-center p-3 sm:pr-8 ">
             <h3 className="text-xl font-bold title pb-4">{item.title}</h3>
             <p className="min-h-[20px] paragraph">
-              {item.desc?.substring(0, 75) + " ..."}
+              {item.desc?.substring(0, 75) + " ..."} <span>{item.status}</span>
             </p>
           </div>
 

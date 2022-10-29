@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./form.css";
 import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
 
-export default function Form({ closeModal, allProjects }) {
+export default function Form({ closeModal, allProjects, setAllProjects }) {
   const [date, setDate] = useState("text");
   const projectRef = useRef();
   const descRef = useRef();
@@ -21,8 +21,8 @@ export default function Form({ closeModal, allProjects }) {
       progress: 40,
       status: "ongoing",
     };
-    console.log("all", allProjects);
     const updatedProjects = [...allProjects, project];
+    setAllProjects(updatedProjects);
     localStorage.setItem("projects", JSON.stringify(updatedProjects));
     closeModal();
   };

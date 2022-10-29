@@ -21,6 +21,9 @@ function App() {
     setForm(false);
   };
 
+  useEffect(() => {
+    localStorage.setItem("projects", JSON.stringify(allProjects));
+  }, [allProjects]);
   return (
     <>
       <div className="line"></div>
@@ -32,6 +35,7 @@ function App() {
               setForm={setForm}
               closeModal={closeModal}
               allProjects={allProjects}
+              setAllProjects={setAllProjects}
             />
           </>
         ) : (
