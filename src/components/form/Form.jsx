@@ -1,14 +1,16 @@
 import React, { useRef, useState } from "react";
 import "./form.css";
-import AddSound from "../../assets/SoundEffects/Add_sound_effect.wav";
 import { toast } from "react-toastify";
 
-export default function Form({ closeModal, allProjects, setAllProjects }) {
+export default function Form({
+  addEffect,
+  closeModal,
+  allProjects,
+  setAllProjects,
+}) {
   const projectRef = useRef();
   const descRef = useRef();
   const dateRef = useRef();
-
-  let addEffect = new Audio(AddSound);
 
   const addProject = (e) => {
     e.preventDefault();

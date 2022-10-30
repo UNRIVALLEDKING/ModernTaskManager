@@ -5,10 +5,25 @@ import Form from "./components/form/Form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NoDataCard from "./components/noDataCard/NoDataCard";
+import AddEffect from "./assets/SoundEffects/Add_sound_effect.wav";
 import CompEffect from "./assets/SoundEffects/Complete_sound_effect.wav";
+import Welcome from "./components/welcomeMessage/Welcome";
 
 function App() {
+  // States
+  const [editingName, setEditingName] = useState(false);
+  const [greeting, setGreeting] = useState(false);
+  const [user, setUser] = useState(() => {
+    const userName = localStorage.getItem("user");
+    if (userName) {
+      setGreeting(true);
+      return JSON.parse(userName);
+    } else {
+      return "Not Set";
+    }
+  });
   const [form, setForm] = useState(false);
+  const [dashboard, setDashboard] = useState(true);
   const [allProjects, setAllProjects] = useState(() => {
     const savedData = localStorage.getItem("projects");
     if (savedData) {
@@ -18,7 +33,12 @@ function App() {
     }
   });
 
+  // Sound Effects
+  const AddAudio = new Audio(AddEffect);
   const compAudio = new Audio(CompEffect);
+
+  // Functions
+
   const openModal = () => {
     compAudio.play();
     setForm(true);
@@ -29,10 +49,30 @@ function App() {
     setForm(false);
   };
   const disposeAll = () => {
-    localStorage.clear();
+    AddAudio.play();
+    localStorage.removeItem("projects");
     setTimeout(() => {
       setAllProjects([]);
-    }, 1500);
+    }, 800);
+  };
+
+  const editName = () => {
+    setEditingName(true);
+  };
+
+  const handleNewUser = (e) => {
+    setUser(e.target.value);
+  };
+
+  const upDateUser = (event) => {
+    if (user.length <= 15) {
+      AddAudio.play();
+      localStorage.setItem("user", JSON.stringify(user));
+      setEditingName(false);
+    } else {
+      event.preventDefault();
+      toast("Username can't be more than 15 letters");
+    }
   };
 
   useEffect(() => {
@@ -41,6 +81,53 @@ function App() {
   return (
     <>
       <ToastContainer />
+      {dashboard ? (
+        <>
+          <Welcome
+            allProjects={allProjects}
+            setDashboard={setDashboard}
+            setUser={setUser}
+            user={user}
+            greeting={greeting}
+            setGreeting={setGreeting}
+          />
+        </>
+      ) : (
+        <></>
+      )}
+
+      {editingName ? (
+        <>
+          <div id="myModal" className="modal" style={{ display: "block" }}>
+            <div className="modal-content w-[80%] sm:w-[50%]">
+              <>
+                <form onSubmit={upDateUser}>
+                  <input
+                    type="text"
+                    placeholder="Enter Your Name"
+                    className="input-field my-2"
+                    value={user}
+                    onChange={handleNewUser}
+                  />
+                  <div className="flex justify-around">
+                    <div className="circle2">
+                      <button
+                        type="submit"
+                        className="form_btn text-center p-0"
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </>
+            </div>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+
       <div className="line"></div>
       <div className="base -mx-5 sm:m-auto">
         <span className="bord"></span>
@@ -55,15 +142,16 @@ function App() {
               closeModal={closeModal}
               allProjects={allProjects}
               setAllProjects={setAllProjects}
+              addEffect={AddAudio}
             />
           </>
         ) : (
           <></>
         )}
-        <h1 className="header under">ToDoMatic</h1>
+        <h1 className="header under">{user}</h1>{" "}
         <div className=" flex my-3">
-          <h1 className="header w-1/2">Projects</h1>
-          <div className="flex w-1/2 justify-around">
+          <h1 className="header text-[2.5rem] mr-1">Projects</h1>
+          <div className="flex w-full justify-around">
             <button onClick={openModal} className="bg-transparent add-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,6 +165,22 @@ function App() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </button>
+            <button onClick={editName} className="bg-transparent add-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
                 />
               </svg>
             </button>
@@ -98,7 +202,6 @@ function App() {
             </button>
           </div>
         </div>
-
         <div className="card-container">
           {allProjects.length > 0 ? (
             <>
@@ -109,6 +212,8 @@ function App() {
                   item={item}
                   key={id}
                   id={id}
+                  addEffect={AddAudio}
+                  completeEffect={compAudio}
                 />
               ))}
             </>

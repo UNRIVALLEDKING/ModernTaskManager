@@ -101,6 +101,7 @@
   color: #35f8ff;
   border: 2px solid #35f8ff;
   border-radius: 0;
+  padding: 0.8em;
   -webkit-clip-path: polygon(
     0 0,
     100% 0,
@@ -161,7 +162,7 @@
 /* ToastContainer */
 
 .Toastify {
-  z-index: 99;
+  z-index: 999;
 }
 
 .Toastify__toast {
