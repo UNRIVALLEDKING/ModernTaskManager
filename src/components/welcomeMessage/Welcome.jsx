@@ -10,12 +10,15 @@ export default function Welcome({
   user,
   setGreeting,
   greeting,
+  AddAudio,
+  compAudio,
 }) {
   const userRef = useRef();
 
   const addUser = (event) => {
     if (userRef.current.value.length <= 15) {
       event.preventDefault();
+      AddAudio.play();
       localStorage.setItem("user", JSON.stringify(userRef.current.value));
       setUser(userRef.current.value);
       setGreeting(true);
@@ -25,6 +28,7 @@ export default function Welcome({
     }
   };
   const close = () => {
+    compAudio.play();
     setDashboard(false);
   };
 

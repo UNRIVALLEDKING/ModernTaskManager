@@ -90,6 +90,8 @@ function App() {
             user={user}
             greeting={greeting}
             setGreeting={setGreeting}
+            AddAudio={AddAudio}
+            compAudio={compAudio}
           />
         </>
       ) : (
