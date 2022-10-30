@@ -135,6 +135,18 @@ function App() {
                     value={user}
                     onChange={handleNewUser}
                   />
+                  <div className="flex justify-between my-8">
+                    <p className="paragraph text-2xl">Sound Effect</p>
+                    <div className="circle3">
+                      <button
+                        type="button"
+                        onClick={SoundEffect}
+                        className="form_btn text-center p-0 h-16 w-16"
+                      >
+                        {sound ? "On" : "Off"}
+                      </button>
+                    </div>
+                  </div>
                   <div className="flex justify-around">
                     <div className="circle2">
                       <button
