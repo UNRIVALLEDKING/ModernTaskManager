@@ -148,9 +148,11 @@ function App() {
         ) : (
           <></>
         )}
-        <h1 className="header under">{user}</h1>{" "}
-        <div className=" flex my-3">
-          <h1 className="header text-[2.5rem] mr-1">Projects</h1>
+        <h1 className="header under">ToDoMatic</h1>
+        <div className=" flex items-center my-3">
+          <h1 className="header text-[1.2rem] xxs:text-[1.8rem] mr-1">
+            {user}
+          </h1>
           <div className="flex w-full justify-around">
             <button onClick={openModal} className="bg-transparent add-btn">
               <svg
