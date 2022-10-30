@@ -7,6 +7,7 @@ export default function Form({
   closeModal,
   allProjects,
   setAllProjects,
+  sound,
 }) {
   const projectRef = useRef();
   const descRef = useRef();
@@ -15,7 +16,9 @@ export default function Form({
   const addProject = (e) => {
     e.preventDefault();
     if (projectRef.current.value.trim().length > 0) {
-      addEffect.play();
+      if (sound) {
+        addEffect.play();
+      }
       const project = {
         title: projectRef.current.value,
         desc: descRef.current.value,

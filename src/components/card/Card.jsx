@@ -8,13 +8,16 @@ export default function Card({
   id,
   completeEffect,
   addEffect,
+  sound,
 }) {
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
 
   const addProgress = (projectId) => {
     setAnimate(true);
-    addEffect.play();
+    if (sound) {
+      addEffect.play();
+    }
     setAllProjects(
       allProjects.map((project, id) => {
         if (projectId === id) {
@@ -35,7 +38,9 @@ export default function Card({
 
   const complete = (projectId) => {
     setCompAnimate(true);
-    completeEffect.play();
+    if (sound) {
+      completeEffect.play();
+    }
     setAllProjects(
       allProjects.map((project, id) => {
         if (projectId === id) {
@@ -52,7 +57,9 @@ export default function Card({
 
   const dispose = (projectId) => {
     setCompAnimate(true);
-    completeEffect.play();
+    if (sound) {
+      completeEffect.play();
+    }
     const newProjectList = allProjects.filter((project, id) => {
       return id !== projectId;
     });

@@ -1,0 +1,22 @@
+.circle3 {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #35f8ff;
+  border-radius: 50%;
+}
+
+.circle3::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 4px solid;
+  border-color: rgba(53, 248, 255, 0.7) transparent;
+  border-radius: 50%;
+  animation: rotating 2s linear infinite forwards;
+}

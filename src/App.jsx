@@ -12,6 +12,14 @@ import Welcome from "./components/welcomeMessage/Welcome";
 function App() {
   // States
   const [editingName, setEditingName] = useState(false);
+  const [sound, setSound] = useState(() => {
+    const effect = localStorage.getItem("sound");
+    if (effect) {
+      return effect;
+    } else {
+      return true;
+    }
+  });
   const [greeting, setGreeting] = useState(false);
   const [user, setUser] = useState(() => {
     const userName = localStorage.getItem("user");
@@ -40,16 +48,22 @@ function App() {
   // Functions
 
   const openModal = () => {
-    compAudio.play();
+    if (sound) {
+      compAudio.play();
+    }
     setForm(true);
   };
 
   const closeModal = () => {
-    compAudio.play();
+    if (sound) {
+      compAudio.play();
+    }
     setForm(false);
   };
   const disposeAll = () => {
-    AddAudio.play();
+    if (sound) {
+      AddAudio.play();
+    }
     localStorage.removeItem("projects");
     setTimeout(() => {
       setAllProjects([]);
@@ -66,13 +80,20 @@ function App() {
 
   const upDateUser = (event) => {
     if (user.length <= 15) {
-      AddAudio.play();
+      if (sound) {
+        AddAudio.play();
+      }
       localStorage.setItem("user", JSON.stringify(user));
       setEditingName(false);
     } else {
       event.preventDefault();
       toast("Username can't be more than 15 letters");
     }
+  };
+
+  const SoundEffect = () => {
+    setSound(!sound);
+    localStorage.setItem("sound", JSON.stringify(!sound));
   };
 
   useEffect(() => {
@@ -92,6 +113,9 @@ function App() {
             setGreeting={setGreeting}
             AddAudio={AddAudio}
             compAudio={compAudio}
+            SoundEffect={SoundEffect}
+            sound={sound}
+            setSound={setSound}
           />
         </>
       ) : (
@@ -106,7 +130,7 @@ function App() {
                 <form onSubmit={upDateUser}>
                   <input
                     type="text"
-                    placeholder="Enter Your Name"
+                    placeholder="Username"
                     className="input-field my-2"
                     value={user}
                     onChange={handleNewUser}
@@ -145,6 +169,7 @@ function App() {
               allProjects={allProjects}
               setAllProjects={setAllProjects}
               addEffect={AddAudio}
+              sound={sound}
             />
           </>
         ) : (
@@ -218,6 +243,7 @@ function App() {
                   id={id}
                   addEffect={AddAudio}
                   completeEffect={compAudio}
+                  sound={sound}
                 />
               ))}
             </>
