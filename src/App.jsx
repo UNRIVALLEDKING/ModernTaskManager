@@ -15,7 +15,7 @@ function App() {
   const [sound, setSound] = useState(() => {
     const effect = localStorage.getItem("sound");
     if (effect) {
-      return effect;
+      return JSON.parse(effect);
     } else {
       return true;
     }

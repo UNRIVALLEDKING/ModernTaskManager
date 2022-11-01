@@ -12,7 +12,6 @@ export default function Form({
   const projectRef = useRef();
   const descRef = useRef();
   const dateRef = useRef();
-
   const addProject = (e) => {
     e.preventDefault();
     if (projectRef.current.value.trim().length > 0) {
@@ -27,6 +26,7 @@ export default function Form({
         progress: 0,
         status: "Active",
       };
+      console.log(project);
       const updatedProjects = [...allProjects, project];
       setAllProjects(updatedProjects);
       localStorage.setItem("projects", JSON.stringify(updatedProjects));
