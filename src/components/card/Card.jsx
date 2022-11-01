@@ -69,15 +69,11 @@ export default function Card({
     }, 1500);
   };
 
-  var day1 = new Date(item.deadline);
-  console.log(day1);
-  const deadline = day1.getTime() - new Date().getTime;
-  console.log(deadline);
-
   return (
     <>
       <div className="max-w-md m-auto my-8">
         <div className="rounded-2xl pending-card box">
+          {/* <div className="edit_icon"></div> */}
           <div className="circle"></div>
 
           <div className="text-center p-3 sm:pr-8 ">
@@ -111,14 +107,19 @@ export default function Card({
             )}
           </div>
 
+          <p className="text-left progress_data">
+            <span>Progress : </span>
+            {item.progress}%
+          </p>
           <div
             className="progress_bar my-2"
             style={{ width: `${item.progress}%` }}
           ></div>
-          <div className="flex justify-between">
-            <span className="progress_data">{item.progress} % Progress</span>
-
-            <span className="progress_data">{deadline} Days Left</span>
+          <div className="flex justify-end">
+            <span className="progress_data">
+              <span>Deadline :</span>
+              {item.deadline}
+            </span>
           </div>
 
           {item.status === "Active" ? (
