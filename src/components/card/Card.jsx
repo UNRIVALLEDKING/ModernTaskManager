@@ -94,6 +94,9 @@ export default function Card({
               allProjects={allProjects}
               setEditForm={setEditForm}
               setAllProjects={setAllProjects}
+              sound={sound}
+              addEffect={addEffect}
+              completeEffect={completeEffect}
             />
           </>
         ) : (

@@ -6,6 +6,9 @@ export default function EditForm({
   allProjects,
   setEditForm,
   setAllProjects,
+  completeEffect,
+  addEffect,
+  sound,
 }) {
   const [title, setTitle] = useState(item.title);
   const [desc, setDesc] = useState(item.desc);
@@ -23,6 +26,9 @@ export default function EditForm({
     }
   };
   const editProject = (e) => {
+    if (sound) {
+      completeEffect.play();
+    }
     e.preventDefault();
     const newData = allProjects.map((project, id) => {
       if (id === projectId) {
@@ -33,10 +39,17 @@ export default function EditForm({
       }
     });
     setAllProjects(newData);
-    setEditForm(false);
+    setTimeout(() => {
+      setEditForm(false);
+    }, 400);
   };
   const closeModal = () => {
-    setEditForm(false);
+    if (sound) {
+      addEffect.play();
+    }
+    setTimeout(() => {
+      setEditForm(false);
+    }, 300);
   };
 
   console.log("All projects", allProjects);
