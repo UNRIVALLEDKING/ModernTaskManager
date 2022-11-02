@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Card.css";
+import { EditIcon } from "../../assets/Icons/icons_index";
+import EditForm from "../form/EditForm";
 
 export default function Card({
   item,
@@ -10,9 +12,14 @@ export default function Card({
   addEffect,
   sound,
 }) {
+  // States
   const [animate, setAnimate] = useState(false);
   const [compAnimate, setCompAnimate] = useState(false);
+  const [editForm, setEditForm] = useState(false);
 
+  // Functions
+
+  // Add Progress Function
   const addProgress = (projectId) => {
     setAnimate(true);
     if (sound) {
@@ -36,6 +43,7 @@ export default function Card({
     }, 1500);
   };
 
+  // Complete Project Function
   const complete = (projectId) => {
     setCompAnimate(true);
     if (sound) {
@@ -55,6 +63,7 @@ export default function Card({
     }, 1500);
   };
 
+  // Dispose Project Function
   const dispose = (projectId) => {
     setCompAnimate(true);
     if (sound) {
@@ -69,11 +78,34 @@ export default function Card({
     }, 1500);
   };
 
+  // Edit Project Funtion
+  const editProject = () => {
+    setEditForm(true);
+  };
+
   return (
     <>
       <div className="max-w-md m-auto my-8">
+        {editForm ? (
+          <>
+            <EditForm
+              item={item}
+              projectId={id}
+              allProjects={allProjects}
+              setEditForm={setEditForm}
+              setAllProjects={setAllProjects}
+            />
+          </>
+        ) : (
+          <></>
+        )}
         <div className="rounded-2xl pending-card box">
-          {/* <div className="edit_icon"></div> */}
+          <button
+            onClick={() => editProject(id)}
+            className="prog_btn absolute right-0 top-3 rounded-full px-[10px] z-[999] editBtn"
+          >
+            <EditIcon />
+          </button>
           <div className="circle"></div>
 
           <div className="text-center p-3 sm:pr-8 ">
@@ -117,7 +149,7 @@ export default function Card({
           ></div>
           <div className="flex justify-end">
             <span className="progress_data">
-              <span>Deadline :</span>
+              <span>Deadline : </span>
               {item.deadline}
             </span>
           </div>

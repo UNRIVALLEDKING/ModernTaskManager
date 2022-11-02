@@ -1,7 +1,7 @@
 .pending-card {
   background-color: #00000080;
   box-shadow: 5px 5px 20px #00000080;
-  z-index: 20;
+  z-index: 0;
 }
 
 /* Hover Button */
@@ -13,6 +13,7 @@
 }
 .prog_btn {
   text-transform: uppercase;
+  color: #35f8ff;
   font-size: 1.3rem;
   padding: 10px 25px;
   z-index: 3;
@@ -163,4 +164,10 @@
 .paragraph {
   font-size: 1.4rem;
   color: #35f8ff;
+}
+
+.editBtn:hover {
+  border: none;
+  rotate: 360deg;
+  transition: all 600ms;
 }
