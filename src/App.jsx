@@ -197,21 +197,21 @@ function App() {
             <button
               onClick={openModal}
               className="bg-transparent add-btn"
-              aria-label="Add Projects"
+              aria-labelledby="Add Projects"
             >
               <AddIcon />
             </button>
             <button
               onClick={editName}
               className="bg-transparent add-btn"
-              aria-label="Edit Username"
+              aria-labelledby="Edit Username"
             >
               <EditIcon />
             </button>
             <button
               onClick={disposeAll}
               className="bg-transparent add-btn"
-              aria-label="Delete All Projects"
+              aria-labelledby="Delete All Projects"
             >
               <DeleteIcon />
             </button>
