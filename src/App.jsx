@@ -190,17 +190,29 @@ function App() {
         )}
         <h1 className="header under">ToDoMatic</h1>
         <div className=" flex items-center my-3">
-          <h1 className="header text-[1.2rem] xxs:text-[1.8rem] mr-1">
+          <h2 className="header text-[1.2rem] xxs:text-[1.8rem] mr-1">
             {user}
-          </h1>
+          </h2>
           <div className="flex w-full justify-around">
-            <button onClick={openModal} className="bg-transparent add-btn">
+            <button
+              onClick={openModal}
+              className="bg-transparent add-btn"
+              aria-label="Add Projects"
+            >
               <AddIcon />
             </button>
-            <button onClick={editName} className="bg-transparent add-btn">
+            <button
+              onClick={editName}
+              className="bg-transparent add-btn"
+              aria-label="Edit Username"
+            >
               <EditIcon />
             </button>
-            <button onClick={disposeAll} className="bg-transparent add-btn">
+            <button
+              onClick={disposeAll}
+              className="bg-transparent add-btn"
+              aria-label="Delete All Projects"
+            >
               <DeleteIcon />
             </button>
           </div>
