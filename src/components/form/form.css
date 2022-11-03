@@ -112,3 +112,10 @@ input[type="date"]:focus:before,
 input[type="date"]:valid:before {
   content: "";
 }
+
+/* Edit Form Progress Bar */
+.progressBar {
+  width: 100%;
+  height: 4px;
+  accent-color: #35f8ff;
+}

@@ -13,6 +13,7 @@ export default function EditForm({
   const [title, setTitle] = useState(item.title);
   const [desc, setDesc] = useState(item.desc);
   const [date, setDate] = useState(item.deadline);
+  const [progress, setProgress] = useState(item.progress);
 
   const handleInput = (data, e) => {
     if (data === "title") {
@@ -24,6 +25,9 @@ export default function EditForm({
     if (data === "desc") {
       setDesc(e.target.value);
     }
+    if (data === "progress") {
+      setProgress(parseInt(e.target.value));
+    }
   };
   const editProject = (e) => {
     if (sound) {
@@ -33,7 +37,22 @@ export default function EditForm({
     const newData = allProjects.map((project, id) => {
       if (id === projectId) {
         console.log("id", id, "project", project);
-        return { ...project, title: title, deadline: date, desc: desc };
+        console.log(progress);
+        let progStatus = "none";
+        if (progress === "100") {
+          progStatus = "Completed";
+        } else {
+          progStatus = "Active";
+        }
+        console.log("progStatus", progStatus);
+        return {
+          ...project,
+          title: title,
+          deadline: date,
+          desc: desc,
+          status: progStatus,
+          progress: progress,
+        };
       } else {
         return project;
       }
@@ -71,6 +90,16 @@ export default function EditForm({
               className="input-field my-2"
               value={desc}
               onChange={(e) => handleInput("desc", e)}
+            />
+            <p className="paragraph text-start">Progress : {progress}%</p>
+            <input
+              className="progressBar"
+              type="range"
+              min="0"
+              max="100"
+              step="10"
+              value={progress}
+              onChange={(e) => handleInput("progress", e)}
             />
             <input
               type="date"

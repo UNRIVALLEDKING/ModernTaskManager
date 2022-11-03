@@ -80,7 +80,9 @@ export default function Card({
 
   // Edit Project Funtion
   const editProject = () => {
-    setEditForm(true);
+    setTimeout(() => {
+      setEditForm(true);
+    }, 400);
   };
 
   return (
@@ -252,51 +254,49 @@ export default function Card({
             </>
           ) : (
             <>
-              <div>
-                <div className="btn_container text-center my-5 w-[50%]">
-                  <div
-                    className="prog_btn whitespace-nowrap"
-                    onClick={() => dispose(id)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6 inline-block mr-1 ml-0 p-0"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                      />
-                    </svg>
-                    Dispose
-                  </div>
+              <div className="btn_container text-center my-5 w-[50%]">
+                <div
+                  className="prog_btn whitespace-nowrap"
+                  onClick={() => dispose(id)}
+                >
                   <svg
-                    className="svgStroke"
-                    width={222}
-                    height={65}
-                    viewBox="0 0 222 85"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 inline-block mr-1 ml-0 p-0"
                   >
                     <path
-                      style={
-                        compAnimate
-                          ? {
-                              animation:
-                                "dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                            }
-                          : { animation: "none" }
-                      }
-                      d="M205 84H21L1 63.4941V18.5765L21 1H205L221 18.5765V63.4941L205 84Z"
-                      stroke="white"
-                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
                     />
                   </svg>
+                  Dispose
                 </div>
+                <svg
+                  className="svgStroke"
+                  width={222}
+                  height={65}
+                  viewBox="0 0 222 85"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    style={
+                      compAnimate
+                        ? {
+                            animation:
+                              "dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                          }
+                        : { animation: "none" }
+                    }
+                    d="M205 84H21L1 63.4941V18.5765L21 1H205L221 18.5765V63.4941L205 84Z"
+                    stroke="white"
+                    strokeWidth={2}
+                  />
+                </svg>
               </div>
             </>
           )}
