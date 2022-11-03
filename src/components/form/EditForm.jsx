@@ -111,7 +111,7 @@ export default function EditForm({
             <div className="flex justify-around">
               <div className="circle2">
                 <button type="submit" className="form_btn">
-                  ADD
+                  DONE
                 </button>
               </div>
               <div className="circle2">
