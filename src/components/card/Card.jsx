@@ -155,7 +155,7 @@ export default function Card({
           <div className="flex justify-end">
             <span className="progress_data">
               <span>Deadline : </span>
-              {item.deadline}
+              {item.deadline ? item.deadline : "Not Set"}
             </span>
           </div>
 
