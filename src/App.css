@@ -162,7 +162,7 @@
 /* ToastContainer */
 
 .Toastify {
-  z-index: 999;
+  z-index: 999999;
 }
 
 .Toastify__toast {
