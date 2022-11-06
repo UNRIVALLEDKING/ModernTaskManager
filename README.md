@@ -1,0 +1,117 @@
+<h1 align="center"><img src="https://i.ibb.co/VjbsHJR/image.png" align="center" alt="Modern Task Manager" width="100"> ToDoMatic 🚀</h1>
+<a href="https://github.com/UNRIVALLEDKING/ModernTaskManager" align="center"></a>
+
+<h2 align="center">Modern Task Manager 🚀</h2>
+
+<p align="center">Modern Sci-Fi Themed to-do WebApp. You can use this to organise and manager your Projects/Tasks/Works</p>
+
+## Navigation
+
+- [Clone This Repo](#clone) <br>
+- [Screenshots](#screenshots) <br>
+- [About me](#aboutme)
+
+<h2 align="center" id="clone">Create your own 🚀</h2>
+<hr>
+
+### Requirements :-
+
+- [Node.Js](https://nodejs.org/en/)
+
+Download Node.Js from the link. (No need to download if your computer already has Node.Js)
+
+Check Node.js version :
+
+```bash
+node -v
+```
+
+### Step 1 :-
+
+Fork This Repo
+
+### Step 2 :-
+
+Clone the forked Repo
+
+```bash
+git clone https://github.com/<Your github Username>/ModernTaskManager.git
+```
+
+### Step 3 :-
+
+Change directory to the Cloned folder
+
+```bash
+cd ModernTaskManager
+```
+
+### Step 4 :-
+
+Install Node modules
+
+```bash
+npm install
+```
+
+### Step 5 :-
+
+Run the Project
+
+```bash
+npm run dev
+```
+
+Now you can customise the style and functions however you want. if you need any help regarding the instruction provided here or with the Project Feel free to [Contact me.](#aboutme)
+
+<h2 align="center" id="screenshots">ScreenShots</h2>
+<hr>
+Here are some Screenshots and Instructions about how to use this WebApp.
+
+### Enter UserName and Toggle sound effect :-
+
+you can leave the username blank too.
+
+<!-- img -->
+
+### DashBoard :-
+
+<!-- img -->
+
+### HomePage :-
+
+<!-- img -->
+
+### Add Project :-
+
+Enter Project name, Description and Deadline for the Project/Task.
+
+<!-- img -->
+
+### Progress :-
+
+Click on `+ ADD 10%` button to increase the progress by 10%.
+
+<!-- img -->
+
+### Complete and Dispose :-
+
+Click on `COMPLETE` button to set the particular Project's/Task's progress 100% and status Completed
+
+<!-- img -->
+
+### Edit :-
+
+Click on the Pencil/Edit Icon on the particular Project/Task you wanna edit.
+
+<!-- img -->
+
+### Change UserName and settings :-
+
+Click on the Pencil/Edit Icon next to add Icon to change your UserName and toggle sound effect settings.
+
+### Dispose All
+
+Click on the `archive box with x mark` Button to Remove all Projects/Tasks at once.
+
+<!-- img -->
