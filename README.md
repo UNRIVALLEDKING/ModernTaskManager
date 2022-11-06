@@ -67,51 +67,83 @@ Now you can customise the style and functions however you want. if you need any 
 <h2 align="center" id="screenshots">ScreenShots</h2>
 <hr>
 Here are some Screenshots and Instructions about how to use this WebApp.
+<br>
+<br>
 
-### Enter UserName and Toggle sound effect :-
+- ## Enter UserName and Sound effect :-
 
-you can leave the username blank too.
+You can enter your UserName here (You can also leave it blank if you want). And Toggle Sound Effect.
 
-<!-- img -->
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/FirstPage.jpg" align="center" alt="Modern Task Manager">
+<br>
+<br>
 
-### DashBoard :-
+- ## DashBoard :-
 
-<!-- img -->
-
-### HomePage :-
-
-<!-- img -->
-
-### Add Project :-
-
-Enter Project name, Description and Deadline for the Project/Task.
+On DashBoard Page, It's just normal greeting with showing total number of projects and number of completed projects. click `Continue` button to go to HomePage
 
 <!-- img -->
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/DashBoard.jpg" align="center" alt="Modern Task Manager">
+<br>
+<br>
 
-### Progress :-
+- ## HomePage :-
+  At first, it will show No Data Card with a `Add Project` button. you can add you project/task by clicking on `Add Project` button or `+` Icon button beside your UserName.
+
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/HomePage.jpg" align="center" alt="Modern Task Manager">
+
+<br>
+<br>
+
+- ## Add Project :-
+
+Enter Project name, Description and Deadline for the Project/Task. then
+
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/AddProjects.jpg" align="center" alt="Modern Task Manager">
+<!-- img -->
+<br>
+<br>
+
+- ## Progress :-
 
 Click on `+ ADD 10%` button to increase the progress by 10%.
 
 <!-- img -->
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/Progress.jpg" align="center" alt="Modern Task Manager">
 
-### Complete and Dispose :-
+<br>
+<br>
+
+- ## Complete and Dispose :-
 
 Click on `COMPLETE` button to set the particular Project's/Task's progress 100% and status Completed
 
 <!-- img -->
 
-### Edit :-
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/DisposeProjects.jpg" align="center" alt="Modern Task Manager">
+
+<br>
+<br>
+
+- ## Edit :-
 
 Click on the Pencil/Edit Icon on the particular Project/Task you wanna edit.
 
 <!-- img -->
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/EditProjects.jpg" align="center" alt="Modern Task Manager">
+<br>
+<br>
 
-### Change UserName and settings :-
+- ## Change UserName and settings :-
 
 Click on the Pencil/Edit Icon next to add Icon to change your UserName and toggle sound effect settings.
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/Setting.jpg" align="center" alt="Modern Task Manager">
+<br>
+<br>
 
-### Dispose All
+- ## Dispose All
 
 Click on the `archive box with x mark` Button to Remove all Projects/Tasks at once.
 
 <!-- img -->
+<img src="https://raw.githubusercontent.com/UNRIVALLEDKING/ModernTaskManager/main/src/assets/ScreenShots/AddProjects.jpg" align="center" alt="Modern Task Manager">
