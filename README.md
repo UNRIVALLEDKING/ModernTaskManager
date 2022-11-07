@@ -9,7 +9,7 @@
 
 - [Clone This Repo](#clone) <br>
 - [Screenshots](#screenshots) <br>
-- [About me](#aboutme)
+- [Contact me](https://linktr.ee/unrivalledking)
 
 <h2 align="center" id="clone">Create your own 🚀</h2>
 <hr>
@@ -62,7 +62,7 @@ Run the Project
 npm run dev
 ```
 
-Now you can customise the style and functions however you want. if you need any help regarding the instruction provided here or with the Project Feel free to [Contact me.](#aboutme)
+Now you can customise the style and functions however you want. if you need any help regarding the instruction provided here or with the Project Feel free to [Contact me.](https://linktr.ee/unrivalledking)
 
 <h2 align="center" id="screenshots">ScreenShots</h2>
 <hr>
