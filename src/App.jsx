@@ -122,7 +122,6 @@ function App() {
       ) : (
         <></>
       )}
-
       {editingName ? (
         <>
           <div id="myModal" className="modal" style={{ display: "block" }}>
@@ -166,7 +165,6 @@ function App() {
       ) : (
         <></>
       )}
-
       <div className="line"></div>
       <div className="base -mx-5 sm:m-auto">
         <span className="bord"></span>
@@ -239,6 +237,17 @@ function App() {
             </>
           )}
         </div>
+      </div>
+      <div className="mt-4 text-[22px]">
+        <p>
+          source code available on{" "}
+          <a
+            className="border border-current rounded px-4 py-2 hover:text-[#35f8ff]"
+            href="https://github.com/UNRIVALLEDKING/ModernTaskManager"
+          >
+            github
+          </a>
+        </p>
       </div>
     </>
   );
