@@ -4,6 +4,7 @@
 <h2 align="center">Modern Task Manager 🚀</h2>
 
 <p align="center">Modern Sci-Fi Themed to-do WebApp. You can use this to organise and manager your Projects/Tasks/Works</p>
+<p align="center">This ToDo stores data in localStorage rather than database. There is another repo which is full-version of this same project. <a href="https://github.com/UNRIVALLEDKING/ModernTaskManager-V2" target="_blank"> Click Here to see the full-stack version </a></p>
 
 ## Navigation
 
